@@ -1,5 +1,12 @@
 package com.example.listener;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
-public class ContextListener {
-    //write your code here!
+
+@WebListener
+public class ContextListener implements ServletContextListener {
+  @Override
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+        servletContextEvent.getServletContext().setAttribute("servletTimeInit",LocalDateTime.now());
+    }
 }
